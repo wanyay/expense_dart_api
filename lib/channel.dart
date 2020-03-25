@@ -3,6 +3,7 @@ import 'package:expense/controller/auth/ProfileController.dart';
 import 'package:expense/controller/auth/login_controller.dart';
 import 'package:expense/controller/auth/register_controller.dart';
 import 'package:expense/controller/category_controller.dart';
+import 'package:expense/controller/welcome_controller.dart';
 import 'package:expense/model/User.dart';
 
 import 'expense.dart';
@@ -33,6 +34,10 @@ class ExpenseChannel extends ApplicationChannel {
   @override
   Controller get entryPoint {
     final router = Router();
+    
+    router
+      .route('/')
+      .link(() => WelcomeController());
 
     router
       .route('/api/v1/login')
